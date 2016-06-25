@@ -11,25 +11,25 @@ import io.github.yannici.bedwars.Main;
 import io.github.yannici.bedwars.Game.Game;
 
 public class PlayerSpigotListener extends BaseListener {
-	
+
 	public PlayerSpigotListener() {
 		super();
 	}
-	
-  @EventHandler(priority = EventPriority.HIGH)
-  public void onPlayerSpawnLocation(PlayerSpawnLocationEvent event) {
-    if (Main.getInstance().isBungee()) {
-      Player player = event.getPlayer();
 
-      ArrayList<Game> games = Main.getInstance().getGameManager().getGames();
-      if (games.size() == 0) {
-        return;
-      }
+	@EventHandler(priority = EventPriority.HIGH)
+	public void onPlayerSpawnLocation(PlayerSpawnLocationEvent event) {
+		if (Main.getInstance().isBungee()) {
+			Player player = event.getPlayer();
 
-      Game firstGame = games.get(0);
+			ArrayList<Game> games = Main.getInstance().getGameManager().getGames();
+			if (games.size() == 0) {
+				return;
+			}
 
-      event.setSpawnLocation(firstGame.getPlayerTeleportLocation(player));
-    }
-  }
+			Game firstGame = games.get(0);
+
+			event.setSpawnLocation(firstGame.getPlayerTeleportLocation(player));
+		}
+	}
 
 }
