@@ -473,12 +473,14 @@ public class PlayerListener extends BaseListener {
 		return ChatColor.translateAlternateColorCodes('&', form);
 	}
 
+	/*
+	 * DISABLE INBUILD CHAT
 	@EventHandler(priority = EventPriority.HIGHEST)
 	public void onChat(AsyncPlayerChatEvent ce) {
 		if (ce.isCancelled()) {
 			return;
 		}
-
+		
 		Player player = ce.getPlayer();
 		Game game = Main.getInstance().getGameManager().getGameOfPlayer(player);
 
@@ -625,7 +627,7 @@ public class PlayerListener extends BaseListener {
 				}
 			}
 		}
-	}
+	}*/
 
 	@EventHandler
 	public void onPickup(PlayerPickupItemEvent ppie) {
