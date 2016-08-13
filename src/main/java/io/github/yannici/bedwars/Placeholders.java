@@ -14,9 +14,17 @@ public class Placeholders extends EZPlaceholderHook {
 	}
 
 	@Override
-	public String onPlaceholderRequest(Player p, String identifier) {
+	public String onPlaceholderRequest(Player p, String identifier) {		
 		if (identifier.equals("team_color")) {
-			return String.valueOf(bedwars.getPlayerTeamColor(p));
+			try {
+				return String.valueOf(bedwars.getPlayerTeamColor(p));
+			} catch(Exception e) {
+				return "&f";
+			}
+		}
+		
+		if (p == null) {
+			return "";
 		}
 		
 		/*switch(identifier){
@@ -30,9 +38,6 @@ public class Placeholders extends EZPlaceholderHook {
 				return String.valueOf(bedwars.getGameInfo(p)[2]);
 		}*/
 		
-		if (p == null) {
-			return "";
-		}
 		return null;
 	}
 }
